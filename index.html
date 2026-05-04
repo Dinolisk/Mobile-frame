@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Valutaomvandlare - S26 Ultra Preview</title>
+    <style>
+        body {
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            font-family: sans-serif;
+        }
+
+        /* S26 Ultra - Mer fyrkantig design med lätt rundade hörn */
+        .s26-frame {
+            position: relative;
+            width: 340px; /* Något bredare för Ultra-känsla */
+            height: 720px;
+            background: #0a0a0a;
+            border: 8px solid #222; /* Titan-ram */
+            border-radius: 12px; /* S-serien är mindre rundad än iPhone */
+            box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+            overflow: hidden;
+        }
+
+        /* Punch-hole kamera */
+        .camera {
+            position: absolute;
+            top: 15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 12px;
+            height: 12px;
+            background: #111;
+            border: 2px solid #333;
+            border-radius: 50%;
+            z-index: 20;
+        }
+
+        /* Skärmen */
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            background: white;
+            /* Förhindrar vit kant mellan ram och skärm */
+            display: block; 
+        }
+
+        /* Responsivitet för mobilbesökare */
+        @media (max-width: 450px) {
+            body { background: white; }
+            .s26-frame {
+                width: 100vw;
+                height: 100vh;
+                border: none;
+                border-radius: 0;
+            }
+            .camera { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="s26-frame">
+        <div class="camera"></div>
+        <iframe 
+            src="https://valutaomvandlare.netlify.app/" 
+            title="S26 Ultra Preview">
+        </iframe>
+    </div>
+
+</body>
+</html>
