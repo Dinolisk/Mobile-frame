@@ -125,14 +125,16 @@
 
         iframe {
             position: absolute;
-            top: calc(var(--status-bar-h) - 1px);
-            left: -1px;
-            width: calc(100% + 2px);
-            height: calc(100% - var(--status-bar-h) + 3px);
+            /* Starkare överskan mot statusrad + botten — undviker 1px svart linje vid avrundning/subpixlar */
+            top: calc(var(--status-bar-h) - 2px);
+            left: -2px;
+            width: calc(100% + 4px);
+            height: calc(100% - var(--status-bar-h) + 6px);
             border: none;
             background: #000;
             display: block;
             box-sizing: border-box;
+            transform: translateZ(0);
         }
 
         @media (max-width: 450px) {
@@ -150,8 +152,11 @@
                 box-shadow: none;
             }
             .iphone-screen iframe {
-                top: -1px;
-                height: calc(100% + 2px);
+                top: -2px;
+                left: -2px;
+                width: calc(100% + 4px);
+                height: calc(100% + 4px);
+                transform: translateZ(0);
             }
             .dynamic-island,
             .status-bar { display: none; }
